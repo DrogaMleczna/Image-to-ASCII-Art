@@ -132,5 +132,8 @@ outfile = outfile.replace("/", "\\")
 
 
 #show the output
-os.system(f"type {outfile[0:]}")
+if os.name == "nt":
+    os.system(f"type {outfile[0:]}")
+elif os.name == "posix":
+    os.system(f"cat {outfile[0:]}")
 input()
